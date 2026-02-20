@@ -1,0 +1,34 @@
+﻿@model CV.Models.CvData
+@{
+    ViewData["Title"] = "Skills";
+    ViewData["Description"] = $"{Model.FullName}'s technical skills — C#, ASP.NET Core, SQL, and more.";
+}
+
+<section class="section">
+    <div class="container">
+
+        <h1 class="section-title">Skills</h1>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">Technologies and tools I work with</p>
+
+        <div class="row g-4">
+            @foreach (var category in Model.SkillCategories)
+            {
+                <div class="col-md-6">
+                    <div class="cv-card">
+                        <div class="skill-cat-title">
+                            <i class="bi @category.Icon me-2"></i>@category.CategoryName
+                        </div>
+                        <div>
+                            @foreach (var skill in category.Skills)
+                            {
+                                <span class="skill-badge">@skill</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</section>

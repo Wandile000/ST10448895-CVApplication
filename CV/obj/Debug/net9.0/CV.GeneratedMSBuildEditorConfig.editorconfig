@@ -20,12 +20,32 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
+[C:/Users/wzuke/OneDrive/Desktop/ICE-CV_App/ST10448895-CVApplication/CV/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wzuke/OneDrive/Desktop/ICE-CV_App/ST10448895-CVApplication/CV/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wzuke/OneDrive/Desktop/ICE-CV_App/ST10448895-CVApplication/CV/Views/Home/Education.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxFZHVjYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/wzuke/OneDrive/Desktop/ICE-CV_App/ST10448895-CVApplication/CV/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/wzuke/OneDrive/Desktop/ICE-CV_App/ST10448895-CVApplication/CV/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wzuke/OneDrive/Desktop/ICE-CV_App/ST10448895-CVApplication/CV/Views/Home/Projects.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9qZWN0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/wzuke/OneDrive/Desktop/ICE-CV_App/ST10448895-CVApplication/CV/Views/Home/Skills.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTa2lsbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/wzuke/OneDrive/Desktop/ICE-CV_App/ST10448895-CVApplication/CV/Views/Shared/Error.cshtml]

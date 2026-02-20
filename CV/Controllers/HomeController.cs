@@ -1,32 +1,71 @@
-using System.Diagnostics;
 using CV.Models;
+using CV.Models;
+using CV.Models.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace CV.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        // ASP.NET Core injects CvDataService here via the constructor.
+        private readonly CvDataService _cvDataService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(CvDataService cvDataService)
         {
-            _logger = logger;
+            _cvDataService = cvDataService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            // Load the full CV data and pass it to the view as the Model
+            var model = _cvDataService.GetCvData();
+            return View(model);  // Renders Views/Home/Index.cshtml
         }
 
-        public IActionResult Privacy()
+        // GET: /Home/About
+        public IActionResult About()
         {
-            return View();
+            var model = _cvDataService.GetCvData();
+            return View(model);  // Renders Views/Home/About.cshtml
         }
 
+        // GET: /Home/Skills
+        public IActionResult Skills()
+        {
+            var model = _cvDataService.GetCvData();
+            return View(model);  // Renders Views/Home/Skills.cshtml
+        }
+
+        // GET: /Home/Projects
+        public IActionResult Projects()
+        {
+            var model = _cvDataService.GetCvData();
+            return View(model);  // Renders Views/Home/Projects.cshtml
+        }
+
+        // GET: /Home/Education
+        public IActionResult Education()
+        {
+            var model = _cvDataService.GetCvData();
+            return View(model);  // Renders Views/Home/Education.cshtml
+        }
+
+        // GET: /Home/Contact
+        public IActionResult Contact()
+        {
+            var model = _cvDataService.GetCvData();
+            return View(model);  // Renders Views/Home/Contact.cshtml
+        }
+
+        // GET: /Home/Error  — Required for the exception handler middleware
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(new ErrorViewModel
+            {
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            });
         }
     }
 }

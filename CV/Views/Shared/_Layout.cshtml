@@ -3,48 +3,128 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - CV</title>
-    <script type="importmap"></script>
+
+    <!-- SEO -->
+    <meta name="description" content="@(ViewData["Description"] ?? "Student Software Dev CV Portfolio")" />
+    <meta name="author" content="Wandile" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- OpenGraph (controls LinkedIn/Twitter link previews) -->
+    <meta property="og:title" content="@ViewData["Title"] — Wandile" />
+    <meta property="og:description" content="Student Portfolio — C#, ASP.NET Core, and more." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="~/images/og-image.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="@Url.Content("~/favicon.ico")" />
+    <link rel="icon" type="image/png" sizes="32x32" href="@Url.Content("~/favicon-32x32.png")" />
+    <link rel="icon" type="image/png" sizes="16x16" href="@Url.Content("~/favicon-16x16.png")" />
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/apple-touch-icon.png")" />
+    <link rel="manifest" href="@Url.Content("~/site.webmanifest")" />
+
+    <title>@ViewData["Title"] — Wandile</title>
+
+    <!-- Bootstrap 5 CSS (local copy in wwwroot/lib/) -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Bootstrap Icons CDN -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet" />
+
+    <!-- Our custom styles -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/CV.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CV</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            &copy; 2026 - CV - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+
+            <!-- Brand / Logo -->
+            <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
+                Wandile<span class="text-accent">.dev</span>
+            </a>
+
+            <!-- Mobile toggle button -->
+            <button class="navbar-toggler border-0" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Nav links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-1">
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")"
+                           asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "About" ? "active" : "")"
+                           asp-controller="Home" asp-action="About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Skills" ? "active" : "")"
+                           asp-controller="Home" asp-action="Skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Projects" ? "active" : "")"
+                           asp-controller="Home" asp-action="Projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Education" ? "active" : "")"
+                           asp-controller="Home" asp-action="Education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Contact" ? "active" : "")"
+                           asp-controller="Home" asp-action="Contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--  PAGE CONTENT -->
+    <!-- Each view's HTML is injected here -->
+    <main>
+        @RenderBody()
+    </main>
+
+    <!-- FOOTER = -->
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p class="mb-2">
+                <a href="https://github.com/Wandile000" target="_blank" class="footer-link me-3">
+                    <i class="bi bi-github me-1"></i>GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/wandile-zuke-974571315/" target="_blank" class="footer-link">
+                    <i class="bi bi-linkedin me-1"></i>LinkedIn
+                </a>
+            </p>
+            <p class="mb-0 small" style="color: #484f58;">
+                &copy; @DateTime.Now.Year Wandile &mdash;
+                Built with ASP.NET Core 9 &amp; MVC
+            </p>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap JS bundle -->
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Navbar scroll effect -->
+    <script>
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+    </script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
